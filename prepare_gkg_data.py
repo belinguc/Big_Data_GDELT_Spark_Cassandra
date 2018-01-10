@@ -76,7 +76,7 @@ def prepare_cql_commands(filename_pattern):
 
     txt = """CREATE TABLE november.gkg
 (	
-DATE bigint,
+DATE TEXT,
 DocumentIdentifier TEXT,
 Locations TEXT,
 Persons TEXT,
@@ -108,7 +108,7 @@ if __name__ == "__main__" :
     if not os.path.exists(path_to_lighter_gkg):
         os.makedirs(path_to_lighter_gkg)
 
-
+    """
     for i_day in range(1, 31) :
 
         day = "{}{:02d}".format(yearmonth, i_day)
@@ -117,7 +117,7 @@ if __name__ == "__main__" :
         #print_geotype(path_to_full_CSV)
 
         prepare_ligther_gkg_file(path_to_full_CSV, path_to_lighter_gkg)
-
+    """
 
     # Writing cql commands file to import one day of data
     txt = prepare_cql_commands("{}/{}*_gkg_full.csv".format(path_to_lighter_gkg, yearmonth))
